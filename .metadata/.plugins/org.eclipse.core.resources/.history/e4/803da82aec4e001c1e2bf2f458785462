@@ -1,0 +1,154 @@
+/*
+ ============================================================================
+ Name        : Parcial.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "cliente.h"
+#include "pedido.h"
+#include "general.h"
+#include "anexo.h"
+#include "localidad.h"
+#include "impuesto.h"
+#define TAMCLIENTE 5 //100
+#define TAMPEDIDO 1000 //1000
+#define TAMRESIDUOS 1000
+#define TAMLOCALIDAD 5
+int main(void)
+{
+	setbuf(stdout,NULL);
+	int automaticId=1;
+	int auxiliarContadorClientes=0;
+	float poliKilos=0;
+	int opcion;
+	eCliente listaDeClientes[TAMCLIENTE]={{1,"Brakem","12345678901","Calle 1","Comuna 8",FALSE},
+			{2,"Club Social","37482659185","Calle 50","Comuna 2",FALSE},
+			{3,"Nokia","29581057361","Calle 2","Comuna 4",FALSE},
+			{4,"Motorola","58274938173","Calle 7","Comuna 11",FALSE},
+			{5,"Utn","37591038576","Calle 99","Comuna 76",FALSE}};
+	ePedido listaDePedidos [1000];
+	eResiduos listaDeResiduos[1000];
+	eLocalidad listaDeLocalidad[1000];
+	int flag=1;//-1;
+	/*inicializarClientes(listaDeClientes, TAMCLIENTE);
+	inicializarResiduos(listaDeResiduos, TAMRESIDUOS);
+	inicializarPedidos(listaDePedidos, TAMPEDIDO);
+	idLocalidad(listaDeLocalidad, TAMLOCALIDAD);
+*/
+
+	do
+	{
+		menu();
+		opcion=pedirEntero("Ingrese opcion: \n", 11);
+		igualarLocalidades(listaDeClientes, TAMCLIENTE, listaDeLocalidad, TAMLOCALIDAD);
+
+		switch(opcion)
+	{
+		case 1:
+		//addCliente(listaDeClientes, TAMCLIENTE, &automaticId);
+		auxiliarContadorClientes=automaticId-1;
+
+		flag=1;
+
+		break;
+		case 2:
+		if (flag==1)
+		{
+			modificarEmpleado(listaDeClientes, TAMCLIENTE);
+
+		}
+		break;
+		case 3:
+		if(flag==1)
+		{
+			if(!removerClienteSeleccionado(listaDeClientes, TAMCLIENTE))
+			{
+				printf("Operacion Exitosa.\n");
+			}
+		}
+		break;
+		case 4:
+		if (flag==1)
+		{
+			cargarPedido(listaDeClientes, listaDePedidos, TAMCLIENTE, TAMPEDIDO);
+		}
+		break;
+		case 5:
+		if(flag==1)
+		{
+
+			procesarResiduos(listaDePedidos, TAMPEDIDO, listaDeResiduos, TAMRESIDUOS);
+		}
+		break;
+		case 6:
+		if(flag==1)
+		{
+			imprimirClientesPendientes(listaDeClientes,listaDePedidos,TAMCLIENTE,TAMPEDIDO);
+		}
+		break;
+		case 7:
+	    if(flag==1)
+		{
+
+	    	imprimirPedidosPendientes(listaDePedidos, TAMPEDIDO, listaDeClientes, TAMCLIENTE);
+		}
+		break;
+
+		case 8:
+		if(flag==1)
+		{
+			imprimirPedidosProcesados(listaDePedidos, TAMPEDIDO, listaDeClientes, TAMCLIENTE, listaDeResiduos);
+		}
+		break;
+		case 9:
+		if(flag==1)
+		{
+			mostrarLocalidades(listaDeClientes, TAMCLIENTE, listaDePedidos, TAMPEDIDO);
+			char localidad[51];
+			pedirStringAlternativo("Ingrese localidad que desea examinar: ", localidad, 0, 51);
+			printf("%s tiene %d pedido/s pendientes\n",localidad,contadorPendientesEnLocalidades(listaDeClientes, TAMCLIENTE, listaDePedidos, TAMPEDIDO, localidad));
+
+		}
+		break;
+		case 10:
+		if(flag==1)
+		{
+			poliKilos = contadorKilosPoli(listaDeResiduos, TAMRESIDUOS, listaDePedidos, TAMPEDIDO);
+			float promedio= poliKilos/auxiliarContadorClientes;
+			printf("El promedio de kilos de Polipropileno reciclado por cliente es: %.2f\n",promedio);
+		}
+		break;
+		case 11:
+		//mostrarIdLocalidades(listaDeClientes, TAMCLIENTE, listaDeLocalidad, TAMLOCALIDAD);
+		clientesPorLocalidad(listaDeClientes, TAMCLIENTE, listaDeLocalidad, TAMLOCALIDAD);
+		break;
+	}
+		if (opcion==12)
+			{
+			flag=-2;
+			}
+		if (flag==-1)
+		{
+			MensajeDeAlerta(flag, "Se ha cargado satisfactoriamente ", "Error. se debe cargar por lo menos un cliente primero.");
+		}
+		/*if(flag==-2)
+		{
+			printf("Adios.\n");
+		}*/
+	}while (opcion!=12);
+
+
+
+
+
+
+	return EXIT_SUCCESS;
+
+}

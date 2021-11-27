@@ -1,0 +1,40 @@
+#include "pedido.h"
+
+
+
+int inicializarPedidos(ePedido list[], int tam)
+{
+
+		int rtn=-1;
+		if(list!=NULL && tam>0)
+		{
+		for(int i=0;i<tam;i++)
+		{
+			list[i].estadoDelPedido=ACARGAR;
+			rtn=0;
+		}
+		}
+		return rtn;
+
+}
+
+int inicializarResiduos(eResiduos list[], int tam)
+{
+	int rtn=-1;
+	if(list!=NULL && tam>0)
+	{
+		for (int i=0;i<tam;i++)
+		{
+			list[i].estadoDelResiduo=PENDIENTE;
+			rtn=0;
+		}
+	}
+
+
+	return rtn;
+}
+
+
+
+
+

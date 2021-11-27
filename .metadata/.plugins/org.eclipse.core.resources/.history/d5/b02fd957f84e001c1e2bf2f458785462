@@ -1,0 +1,149 @@
+#include "cliente.h"
+#define TRUE 1
+#define FALSE 0
+
+
+int inicializarClientes(eCliente list[], int tam)
+{
+	int rtn=-1;
+	if(list!=NULL && tam>0)
+	{
+	for(int i=0;i<tam;i++)
+	{
+		list[i].isEmpty=TRUE;
+		rtn=0;
+	}
+	}
+	return rtn;
+}
+
+int addCliente(eCliente list[], int tam, int* idAutomatico)
+{
+	int rtn=-1;
+	int auxID;
+	int posicionACargar=-1;
+	auxID=*idAutomatico;
+
+	if (list != NULL && list > 0)
+	{
+		for (int i=0;i<tam;i++)
+		{
+			if (list[i].isEmpty==TRUE)
+			{
+				posicionACargar=i;
+				break;
+			}
+
+		}
+
+		if (posicionACargar!=-1)
+		{
+			list[posicionACargar].id=auxID;
+			pedirString("Ingrese nombre del cliente: ", list[posicionACargar].name);
+			pedirStringAlternativoOnlyNumbers("Ingrese CUIT: ", list[posicionACargar].cuit, 11, 11);
+			pedirStringAlternativo("Ingrese dirección: ", list[posicionACargar].direccion, 0,99999);
+			pedirString("Ingrese localidad: ", list[posicionACargar].localidad);
+
+			auxID++;
+			list[posicionACargar].isEmpty=FALSE;
+			rtn=0;
+			*idAutomatico = auxID;
+
+		}
+	}
+	return rtn;
+}
+
+void mostrarUnicoCliente(eCliente cliente)
+{
+	printf("%1d %11s %18s 	%13s 	%14s\n",cliente.id, cliente.name, cliente.cuit, cliente.direccion, cliente.localidad);
+}
+
+int imprimirClientes(eCliente list[], int tam)
+{
+	int rtn=-1;
+	printf("ID	NOMBRE		CUIT	    \tDIRECCION		LOCALIDAD\n");
+	for(int i=0; i<tam;i++)
+	{
+		if(list[i].isEmpty==FALSE)
+		{
+			mostrarUnicoCliente(list[i]);
+			rtn=0;
+		}
+	}
+	return rtn;
+}
+
+
+int modificarEmpleado(eCliente list[],int tam)
+{
+	int subMenu;
+	int id;
+	int rtn=-1;
+	if (list!=NULL && list>0)
+	{
+		imprimirClientes(list, tam);
+		id=pedirEntero("Ingrese ID del cliente que desea modificar: ", tam);
+		for (int i=0;i<tam;i++)
+		{
+			if(list[i].id==id && list[i].isEmpty==FALSE)
+			{
+				printf("Que desea modificar: \n"
+						"1. Cambiar Direccion.\n"
+						"2. Cambiar Localidad.\n");
+				subMenu=pedirEntero("Ingrese opcion: ", 2);
+				switch(subMenu)
+				{
+				case 1:
+					pedirStringAlternativo("Ingrese direccion: ", list[i].direccion,1,51);
+					break;
+				case 2:
+					pedirString("Ingrese localidad: ", list[i].localidad);
+					break;
+				}
+				rtn=0;
+				break;
+			}
+		}
+	}
+	return rtn;
+}
+int removerCliente(eCliente list[], int tam, int id)
+{
+	int retorno =-1;
+	if (list != NULL && tam >0 && id>0)
+	{
+		for (int i=0;i<tam;i++)
+		{
+			if(list[i].id==id && list[i].isEmpty ==FALSE)
+			{
+				list[i].isEmpty = TRUE;
+				retorno = 0;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+
+int removerClienteSeleccionado(eCliente list[], int tam)
+{
+	int rtn=-1;
+	int idBaja;
+	int msjError;
+	if(list != NULL && tam>0)
+	{
+		if(!imprimirClientes(list, tam))
+		{
+			idBaja= pedirEntero("Ingrese el id del empleado que desea remover: \n", 9999);
+		}
+		if (!removerCliente(list, tam, idBaja))
+		{
+			msjError=0;
+			rtn=0;
+		}
+		MensajeDeAlerta(msjError, "Se elimino el ID\n", "Error - no se pudo eliminar el cliente\n ");
+	}
+	return rtn;
+
+}

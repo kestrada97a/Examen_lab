@@ -1,0 +1,33 @@
+/*
+ * impuesto.h
+ *
+ *  Created on: 25 nov. 2021
+ *      Author: brake
+ */
+
+#ifndef IMPUESTO_H_
+#define IMPUESTO_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "general.h"
+#include "cliente.h"
+#include "pedido.h"
+#include "localidad.h"
+
+#define TRUE 1
+#define FALSE 0
+typedef struct
+{
+	int id;
+	float impuesto;
+	char tipoImpuesto[51];
+	int isTaxed;
+
+}eImpuesto;
+
+int inicializarImpuesto(eImpuesto list[], int TAMIMPUESTO);
+
+
+#endif /* IMPUESTO_H_ */

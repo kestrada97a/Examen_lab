@@ -1,0 +1,165 @@
+#include "impuesto.h"
+
+int inicializarImpuesto(eImpuesto list[], int TAMIMPUESTO)
+{
+	int rtn = -1;
+	if(list!=NULL)
+	{
+		for(int i=0;i<TAMIMPUESTO;i++)
+		{
+			list[i].isTaxed=FALSE;
+			rtn=0;
+		}
+	}
+
+	return rtn;
+}
+
+int idImpuesto(ePedido listaPedido[], int TAMPEDIDO, eImpuesto listaImpuesto[], int TAMIMPUESTO)
+{
+	int rtn=-1;
+	if(listaPedido!=NULL && listaPedido>0)
+	{
+		for(int i=0;i<TAMPEDIDO;i++)
+		{
+			listaImpuesto[i].idPedido=listaPedido[i].idPedido;
+			rtn=0;
+		}
+	}
+
+	return rtn;
+}
+
+int cargarImpuestosPorCaracteristicas(eImpuesto listaImpuesto[], int TAMIMPUESTO, ePedido listaPedido[], int TAMPEDIDO)
+{
+	int rtn=-1;
+
+	int id;
+	if(listaPedido!=NULL && listaImpuesto!=NULL)
+	{
+		imprimirIdPendientes(listaPedido, TAMPEDIDO);
+		id=pedirEntero("Ingrese id a cargar: ", TAMPEDIDO);
+
+		for(int i=0;i<TAMPEDIDO;i++)
+		{
+			if(id==listaPedido[i].idPedido && listaPedido[i].estadoDelPedido==PENDIENTE)
+			{
+				for(int j=0;j<TAMIMPUESTO;j++)
+				{
+					if(listaPedido[i].idPedido==listaImpuesto[j].idPedido)
+					{
+						pedirStringAlternativo("Ingrese Codigo Postal", listaImpuesto[j].codigoPostal, 0, 10);
+						listaImpuesto[j].capCom=pedirEntero("Ingrese 1(capitalista), 2(comunista)", 2);
+						if(listaPedido[i].pedidoKg>600)
+						{
+							if(listaImpuesto[j].capCom==CAPITALISTA)
+							{
+								listaImpuesto[j].impuesto=22.5;
+							}
+							else
+							{
+								listaImpuesto[j].impuesto=55.3;
+							}
+						}
+
+					}
+
+				}
+				break;
+
+			}
+
+		}
+	}
+
+	return rtn;
+}
+
+
+
+
+
+
+
+
+
+
+
+void mostrarUnicoImpuesto(eImpuesto impuesto)
+{
+
+	printf("%.2f\n",impuesto.impuesto);
+
+}
+void imprimirImpuestosConId(eImpuesto listaDeImpuesto[], int TAMIMPUESTO)
+{
+	if (listaDeImpuesto!=NULL)
+	{
+		for(int i=0;i<TAMIMPUESTO;i++)
+		{
+			if(listaDeImpuesto[i].isTaxed==TRUE)
+			{
+				mostrarUnicoImpuesto(listaDeImpuesto[i]);
+				break;
+			}
+		}
+	}
+}
+
+
+
+
+void mostrarUnicoIdPendiente(ePedido pedido)
+{
+	printf("%d\n",pedido.idPedido);
+}
+void imprimirIdPendientes (ePedido listaDePedidos[], int TAMPEDIDO)
+{
+	if (listaDePedidos!=NULL)
+	{
+		printf("ID pedidos pendientes: \n");
+		for(int i=0;i<TAMPEDIDO;i++)
+		{
+			if(listaDePedidos[i].estadoDelPedido==PENDIENTE)
+			{
+				mostrarUnicoIdPendiente(listaDePedidos[i]);
+
+			}
+
+		}
+	}
+}
+
+int asignarImpuesto(eImpuesto listaImpuesto[], int TAMIMPUESTO, ePedido listaPedido[], int TAMPEDIDO)
+{
+	int rtn=-1;
+	if(listaImpuesto!=NULL && listaImpuesto>0)
+	{
+		for(int i=0;i<TAMIMPUESTO;i++)
+		{
+			for(int j=0;j<TAMPEDIDO;j++)
+			{
+				if(listaImpuesto[i].idPedido==listaPedido[j].idPedido)
+				{
+					if(listaPedido[j].pedidoKg>500 && listaImpuesto[i].capCom==CAPITALISTA)
+					{
+						listaImpuesto[i].impuesto=21;
+						listaImpuesto[i].isTaxed=TRUE;
+					}
+
+					else if (listaPedido[j].pedidoKg>500 && listaImpuesto[i].capCom==COMUNISTA)
+					{
+						listaImpuesto[i].impuesto=50;
+						listaImpuesto[i].isTaxed=TRUE;
+					}
+
+				}
+			}
+		}
+	}
+
+
+	return rtn;
+
+
+}

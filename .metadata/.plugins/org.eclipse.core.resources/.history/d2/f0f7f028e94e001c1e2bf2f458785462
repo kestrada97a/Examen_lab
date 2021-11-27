@@ -1,0 +1,78 @@
+#include "localidad.h"
+
+
+int igualarLocalidades(eCliente listaDeCliente[], int TAMCLIENTE, eLocalidad listaDeLocalidad[], int TAMLOCALIDAD)
+{
+	int rtn=-1;
+	if(listaDeCliente!=NULL && listaDeCliente>0)
+	{
+		for(int i=0;i<TAMCLIENTE;i++)
+		{
+				strcpy(listaDeLocalidad[i].localidad,listaDeCliente[i].localidad);
+				listaDeLocalidad[i].id=listaDeCliente[i].id;
+				rtn=0;
+		}
+	}
+
+	return rtn;
+}
+
+
+
+
+
+
+void mostrarIdLocalidades(eCliente listaDeClientes[], int TAMCLIENTE, eLocalidad listaDeLocalidad[], int TAMLOCALIDAD)
+{
+	if(listaDeLocalidad!=NULL)
+	{
+		for (int i=0; i<TAMLOCALIDAD;i++)
+
+			{
+				printf("%s\n",listaDeLocalidad[i].localidad);
+
+			}
+
+
+
+	}
+}
+
+
+int clientesPorLocalidad(eCliente listaDeCliente[], int TAMCLIENTE, eLocalidad listaDeLocalidad[], int TAMLOCALIDAD)
+{
+	int rtn=-1;
+	//char listaAuxiliar[51];
+
+	if(listaDeCliente!=NULL && listaDeCliente>0)
+	{
+		for(int i=1;i<TAMCLIENTE;i++)
+		{
+
+			if(listaDeLocalidad!=NULL && listaDeLocalidad>0)
+			{
+				for(int j=0;j<TAMCLIENTE;j++)
+				{
+
+					if(listaDeCliente[i].id==listaDeLocalidad[j].id)
+					{
+						if(strcmp(listaDeCliente[i].localidad,listaDeLocalidad[j].localidad)==0)
+						{
+						printf("%s: \n",listaDeLocalidad[j].localidad);
+						printf("	%s\n",listaDeCliente[i].name);
+						}
+
+
+					}
+				}
+			}
+		}
+	}
+
+	return rtn;
+
+}
+
+
+
+

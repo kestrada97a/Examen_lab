@@ -1,0 +1,80 @@
+00:09:19 **** Rebuild of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\general.o" "..\\src\\general.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pedido.o" "..\\src\\pedido.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\anexo.o" "..\\src\\anexo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+Info: Nothing to build for Parcial
+00:11:59 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+00:12:16 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+00:13:35 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+00:14:31 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+01:44:53 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\general.o" "..\\src\\general.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pedido.o" "..\\src\\pedido.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\anexo.o" "..\\src\\anexo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+17:02:17 **** Rebuild of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pedido.o" "..\\src\\pedido.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\anexo.o" "..\\src\\anexo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\impuesto.o" "..\\src\\impuesto.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\localidad.o" "..\\src\\localidad.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\general.o" "..\\src\\general.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+17:02:34 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+Info: Nothing to build for Parcial
+17:06:30 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+17:07:51 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+..\src\cliente.c: In function 'modificarEmpleado':
+..\src\cliente.c:115:6: error: too few arguments to function 'pedirStringAlternativo'
+  115 |      pedirStringAlternativo("Ingrese localidad: ", list[i].localidad);
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\cliente.h:7,
+                 from ..\src\cliente.c:1:
+..\src\general.h:13:6: note: declared here
+   13 | void pedirStringAlternativo(char mensaje [], char stringAuxiliar[], int min, int max);
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+17:08:24 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+17:11:20 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 
+17:11:40 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Parcial.o" "..\\src\\Parcial.c" 
+gcc -o Parcial.exe "src\\Parcial.o" "src\\anexo.o" "src\\cliente.o" "src\\general.o" "src\\impuesto.o" "src\\localidad.o" "src\\pedido.o" 

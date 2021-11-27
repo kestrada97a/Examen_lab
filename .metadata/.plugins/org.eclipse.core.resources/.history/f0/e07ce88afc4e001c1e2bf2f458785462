@@ -1,0 +1,38 @@
+/*
+ * impuesto.h
+ *
+ *  Created on: 25 nov. 2021
+ *      Author: brake
+ */
+
+#ifndef IMPUESTO_H_
+#define IMPUESTO_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "general.h"
+#include "pedido.h"
+
+#define FALSE 0
+#define TRUE 1
+#define CAPITALISTA 1
+#define COMUNISTA 2
+
+typedef struct
+{
+	int idPedido;
+	float impuesto;
+	char zonaContinental[51];
+	int isTaxed;
+	int capCom;
+
+}eImpuesto;
+
+int inicializarImpuesto(eImpuesto list[], int TAMIMPUESTO);
+int idImpuesto(ePedido listaPedido[], int TAMPEDIDO, eImpuesto listaImpuesto[], int TAMIMPUESTO);
+int zonaContinental(eImpuesto listaImpuesto[], int TAMIMPUESTO);
+int asignarImpuesto(eImpuesto listaImpuesto[], int TAMIMPUESTO, ePedido listaPedido[], int TAMPEDIDO);
+int mostrarKAKA (eImpuesto listaImpuesto[], int TAMIMPUESTO, ePedido listaPedido[], int TAMPEDIDO);
+
+#endif /* IMPUESTO_H_ */

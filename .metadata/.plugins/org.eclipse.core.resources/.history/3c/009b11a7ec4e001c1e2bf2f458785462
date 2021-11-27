@@ -1,0 +1,100 @@
+#include "localidad.h"
+
+
+int igualarLocalidades(eCliente listaDeCliente[], int TAMCLIENTE, eLocalidad listaDeLocalidad[], int TAMLOCALIDAD)
+{
+	int rtn=-1;
+	if(listaDeCliente!=NULL && listaDeCliente>0)
+	{
+		for(int i=0;i<TAMCLIENTE;i++)
+		{
+				strcpy(listaDeLocalidad[i].localidad,listaDeCliente[i].localidad);
+				listaDeLocalidad[i].id=listaDeCliente[i].id;
+				rtn=0;
+		}
+	}
+
+	return rtn;
+}
+
+
+
+
+
+
+void mostrarIdLocalidades(eCliente listaDeClientes[], int TAMCLIENTE, eLocalidad listaDeLocalidad[], int TAMLOCALIDAD)
+{
+	if(listaDeLocalidad!=NULL)
+	{
+		for (int i=0; i<TAMLOCALIDAD;i++)
+
+			{
+				printf("%s\n",listaDeLocalidad[i].localidad);
+
+			}
+
+
+
+	}
+}
+
+
+int clientesPorLocalidad(eCliente listaDeCliente[], int TAMCLIENTE, eLocalidad listaDeLocalidad[], int TAMLOCALIDAD)
+{
+	int rtn=-1;
+	char listaAuxiliar[51];
+	char listaAuxiliar2[51];
+	if(listaDeCliente!=NULL && listaDeCliente>0)
+	{
+		for(int i=0;i<TAMCLIENTE;i++)
+		{
+
+			if(listaDeLocalidad!=NULL && listaDeLocalidad>0)
+			{
+				for(int j=0;j<TAMCLIENTE;j++)
+				{
+
+					if(listaDeCliente[i].id==listaDeLocalidad[j].id)
+					{
+						strcpy(listaAuxiliar,listaDeLocalidad[j].localidad);
+						strcpy(listaAuxiliar2,listaDeLocalidad[j+1].localidad);
+
+						if(strcmp(listaAuxiliar,listaAuxiliar2)!=0)
+						{
+							printf("%s: \n",listaDeLocalidad[j].localidad);
+						}
+
+
+					}
+				}
+			}
+		}
+	}
+
+	return rtn;
+
+}
+
+int clientesKAKA(eCliente listaDeClientes[], int TAMCLIENTE)
+{
+	int rtn=-1;
+	char auxiliar1[51];
+	char auxiliar2[51];
+	if(listaDeClientes!=NULL && listaDeClientes>0)
+	{
+		for(int i=0;i<TAMCLIENTE;i++)
+		{
+			strcpy(auxiliar1,listaDeClientes[i].localidad);
+			strcpy(auxiliar2,listaDeClientes[i+1].localidad);
+			if(strcmp(auxiliar1,auxiliar2)==0)
+			{
+				printf("%s\n",listaDeClientes[i].name);
+
+			}
+		}
+	}
+	return rtn;
+}
+
+
+
